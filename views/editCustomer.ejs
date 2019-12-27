@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>View Customer Data</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="bootstrap.min.css">
+  <script src="jquery.min.js"></script>
+  <script src="popper.min.js"></script>
+  <script src="bootstrap.min.js"></script>
+</head>
+<body>
+    <%- include ('navBar') -%>
+<div class="container">
+  <h4>View Customer Data</h4>
+  <table>
+    <tr>
+      <td>
+        <a href="/logout">Logout</a>
+      </td>
+      <td> | </td>
+      <td>
+        <a href="#customerOrders" data-toggle="collapse" data-target="#customerOrders">Show my orders</a>
+      </td>
+      <td> | </td>
+      <td>
+        <a href="/uploadFile">Upload order file</a>
+      </td>
+    </tr>
+  </table>
+  <form method="post" action="/updateCustomer">
+  <div class="form-group">
+    <label for="firstName">First name:</label>
+    <input type="text" class="form-control form-control-sm" id="firstName" name="firstName" value="<%=data.cFirst%>">
+    <label for="lastName">Last name:</label>
+    <input type="text" class="form-control form-control-sm" id="lastName" name="lastName" value="<%=data.cLast%>">
+    <label for="accountName">Account name:</label>
+    <input type="text" class="form-control form-control-sm" id="accountName" name="accountName" value="<%=data.cUser%>">
+    <label for="adrStreet">Street:</label>
+    <input type="text" class="form-control form-control-sm" id="adrStreet" name="adrStreet" value="<%=data.cStreet%>">
+    <label for="adrZip">Zip Code:</label>
+    <input type="text" class="form-control form-control-sm" id="adrZip" name="adrZip" value="<%=data.cZip%>">
+    <label for="adrCity">City:</label>
+    <input type="text" class="form-control form-control-sm" id="adrCity" name="adrCity" value="<%=data.cCity%>">
+  </div>
+
+  <button type="submit" class="btn btn-primary">Update</button>
+  </form>
+  <!-- <button class="btn btn-outline-info" data-toggle="collapse" data-target="#customerOrders">Show my Orders</button> -->
+  
+  <div id="customerOrders" class="collapse">
+    <table class="table"> 
+      <thead>
+        <tr>
+          <th>Order ID</th>
+          <th>Order Date</th>
+          <th>Order Remarks</th>
+          <th>Prod.Nr.</th>
+          <th>Productname</th>
+          <th>Amount</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% orderItems.forEach(function(order) { %>
+        <tr>
+          <td><%=order.orderId%></td>
+          <td><%=order.orderDate%></td>
+          <td><%=order.orderRemarks%></td>
+          <td><%=order.orderItemId%></td>
+          <td><%=order.orderItemName%></td>
+          <td><%=order.orderItemQuantity%></td>
+          <td style="text-align:right"><%=order.orderItemPrice%></td>
+        </tr>
+      <% }); %>
+      </tbody>      
+    </table>
+    </div>
+</div>
+
+</body>
+</html>

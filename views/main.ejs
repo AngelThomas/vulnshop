@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Little Shop of vulnerabilities</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="bootstrap.min.css">
+  <script src="jquery.min.js"></script>
+  <script src="popper.min.js"></script>
+  <script src="bootstrap.min.js"></script>
+
+</head>
+<body>
+    <%- include ('navBar') -%>
+
+<div class="container">
+  <h4>Item List</h4>
+  <p>Our valuable products</p>
+  <form action="/" method="get" class="form-inline">
+    <label for="searchItem" class="mr-sm-2">Search items for:</label>
+    <input type="text" class="form-control" name="searchItem"/>
+  </form>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Prod.Nr.</th>
+        <th>Productname</th>
+        <th style="text-align:right">Item Price</th>
+        <th>Amount</th>
+		<th>Get It!</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% items.forEach(function(item) { %>
+	  <form method="post" action="/add2cart" onsubmit="return checkInp('quantity_<%=item.itemNr%>')">
+      <tr>
+        <!-- <td><input type="text" class="form-control" name="prodNr" value="<%=item.itemNr%>" disabled/></td> -->
+        <td><%=item.itemNr%></td> 
+        <td><%=item.itemName%></td>
+        <td style="text-align:right"><%=item.itemPrice%></td>
+        <td><input type="text" class="form-control" name="quantity" id="quantity_<%=item.itemNr%>" value="1"/></td>
+        <td><input type="submit" class="btn btn-outline-primary btn-sm" value="Add to cart" name="add2cart_<%=item.itemNr%>"/></td>
+      </tr>
+	  </form>
+	  <% }); %>
+    </tbody>
+  </table>
+</div>
+<script>
+    function checkInp(pElementId)
+    {
+      var x=document.getElementById(pElementId).value;
+      console.log('Value: ' + x);
+      if (isNaN(x)) 
+      {
+        alert("Quantity must be numeric");
+        return false;
+      } else if (x === '0') {
+        alert("Quantity cannot be 0");
+        return false;
+      } else if (parseInt(x) < 0) {
+        alert("Quantity must be positive")
+      }
+    }    
+  </script>
+</body>
+</html>

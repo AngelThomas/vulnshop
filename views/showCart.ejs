@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Your shopping cart</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="bootstrap.min.css">
+  <script src="jquery.min.js"></script>
+  <script src="popper.min.js"></script>
+  <script src="bootstrap.min.js"></script>
+</head>
+<body>
+    <%- include ('navBar') -%>
+<div class="container">
+  <h4>Your shopping cart</h4>
+  <p>You selected the following items:</p>
+  <% if (itemCount > 0) { %>
+  <form action='/orderCart' method="GET">
+    <input type="submit" class="btn btn-primary btn-sm" value="Place order"/>
+  </form>
+  <% } %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Prod.Nr.</th>
+        <th>Productname</th>
+        <th>Amount</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% cartItems.forEach(function(item) { %>
+	  <form method="post" action="/removeFromCart">
+      <tr>
+        <input type="hidden" name="prodNr" value="<%=item.itemId%>" />
+        <input type="hidden" name="prodName" value="<%=item.itemName%>" />
+        <td><%=item.itemId%></td>
+        <td><%=item.itemName%></td>
+        <td><%=item.itemQuantity%></td>
+        <td style="text-align:right"><%=item.itemPrice%></td>
+        <td><input type="submit" class="btn btn-outline-primary btn-sm" value="remove" onclick="confirm('Remove this item?');" name="removeFromCart"/></td>
+      </tr>
+	  </form>
+	  <% }); %>
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Error Page</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="bootstrap.min.css">
+  <script src="jquery.min.js"></script>
+  <script src="popper.min.js"></script>
+  <script src="bootstrap.min.js"></script>
+</head>
+<body>
+    <%- include ('navBar') -%>
+  <div class="container p-3 my-3 border" style="background-color:wheat">
+    <div style="text-align:center">
+      <h4>Error page</h4>
+      <p>Following error occurred: <div style="color: red; font-weight: bold;"><%=errorMessage%></div></p>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Customer login</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="bootstrap.min.css">
+		<script src="jquery.min.js"></script>
+		<script src="popper.min.js"></script>
+		<script src="bootstrap.min.js"></script>	
+	</head>
+	<body>
+			<%- include ('navBar') -%>
+		<div class="container-md p-3 my-3 border">
+			<h1>Please login</h1>
+			<form action="auth" method="POST">
+
+				<div class="form-group">
+					<label for="username">User Name:</label>
+					<input type="text" class="form-control" placeholder="Enter user name" id="username" name="username" required>
+				  </div>
+				  <div class="form-group">
+					<label for="pwd">Password:</label>
+					<input type="password" class="form-control" placeholder="Enter password" id="password" name="password" required>
+				  </div>
+				  <input type="submit" class="btn btn-outline-primary" value="Submit"/>
+
+				<!-- 
+				<input type="text" name="username" placeholder="Username" required>
+				<input type="password" name="password" placeholder="Password" required>
+				<input type="submit" value="Login">
+				-->
+			</form>
+					<div style="text-align:center">
+			or<br>
+			<a href="register">Register new</a>
+		</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Item list</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="bootstrap.min.css">
+  <script src="jquery.min.js"></script>
+  <script src="popper.min.js"></script>
+  <script src="bootstrap.min.js"></script>
+</head>
+<body>
+    <%- include ('navBar') -%>
+<div class="container">
+  <h4>Place Your order</h4>
+  <form method="post" action="/placeOrder">
+  <div class="form-group">
+    <label for="firstName">First name:</label>
+    <input type="text" class="form-control form-control-sm" id="firstName" name="firstName" value="<%=userData.firstName%>">
+    <label for="lastName">Last name:</label>
+    <input type="text" class="form-control form-control-sm" id="lastName" name="lastName" value="<%=userData.lastName%>">
+    <label for="adrStreet">Street:</label>
+    <input type="text" class="form-control form-control-sm" id="adrStreet" name="adrStreet" value="<%=userData.street%>">
+    <label for="adrZip">Zip Code:</label>
+    <input type="text" class="form-control form-control-sm" id="adrZip" name="adrZip" value="<%=userData.zipCode%>">
+    <label for="adrCity">City:</label>
+    <input type="text" class="form-control form-control-sm" id="adrCity" name="adrCity" value="<%=userData.city%>">
+    <label for="orderRemarks">Your remarks regarding the order:</label>
+    <input type="text" class="form-control form-control-sm" id="orderRemarks" name="orderRemarks">
+  </div>
+
+  <p>You selected the following items:</p>            
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Prod.Nr.</th>
+        <th>Productname</th>
+        <th>Amount</th>
+        <th style="text-align:right">Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% cartItems.forEach(function(item) { %>
+      <tr>
+        <input type="hidden" name="prodNr" value="<%=item.itemId%>" />
+        <input type="hidden" name="prodName" value="<%=item.itemName%>" />
+        <td><%=item.itemId%></td>
+        <td><%=item.itemName%></td>
+        <td><%=item.itemQuantity%></td>
+        <td style="text-align:right"><%=item.itemPrice%></td>
+        <td><input type="submit" class="btn btn-outline-primary btn-sm" value="remove" name="removeFromCart"/></td>
+      </tr>
+	  </form>
+	  <% }); %>
+    </tbody>
+  </table>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</div>
+
+</body>
+</html>

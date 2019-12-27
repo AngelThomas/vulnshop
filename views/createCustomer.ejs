@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Customer Registration</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="bootstrap.min.css">
+  <script src="jquery.min.js"></script>
+  <script src="popper.min.js"></script>
+  <script src="bootstrap.min.js"></script>
+</head>
+<body>
+    <%- include ('navBar') -%>
+<div class="container">
+  <h4>Register new account</h4>
+  <form method="post" action="/createNewCustomer">
+  <div class="form-group">
+    <label for="firstName">First name:</label>
+    <input type="text" class="form-control form-control-sm" id="firstName" name="firstName">
+    <label for="lastName">Last name:</label>
+    <input type="text" class="form-control form-control-sm" id="lastName" name="lastName">
+    <label for="accountName">Account name:</label>
+    <input type="text" class="form-control form-control-sm" id="accountName" name="accountName">
+    <label for="adrStreet">Street:</label>
+    <input type="text" class="form-control form-control-sm" id="adrStreet" name="adrStreet">
+    <label for="adrZip">Zip Code:</label>
+    <input type="text" class="form-control form-control-sm" id="adrZip" name="adrZip">
+    <label for="adrCity">City:</label>
+    <input type="text" class="form-control form-control-sm" id="adrCity" name="adrCity">
+    <label for="adrPassword">Password:</label>
+    <input type="password" class="form-control form-control-sm" id="adrPassword" name="adrPassword">
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</div>
+
+</body>
+</html>

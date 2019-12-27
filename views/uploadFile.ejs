@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Upload XML Order</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="bootstrap.min.css">
+  <script src="jquery.min.js"></script>
+  <script src="popper.min.js"></script>
+  <script src="bootstrap.min.js"></script>
+</head>
+<body>
+    <%- include ('navBar') -%>
+  <div class="container p-3 my-3 border" style="background-color:wheat">
+    <form action="/processFileUpload" method="post" encType="multipart/form-data">
+      <div class="form-group">
+        <label for="uploadFileName">File to upload:</label></br>
+        <input type="file" class="btn btn-outline-success" placeholder="File to upload" id="uploadFileName" name="uploadFileName">
+      </div>
+      <button type="submit" class="btn btn-outline-primary">Submit</button>
+    </form> 
+  </div>
+</body>
+</html>
