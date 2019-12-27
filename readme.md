@@ -1,7 +1,7 @@
 Installation
 ============
 
-- Clone git repository to a directory of your choice
+- Clone git repository https://github.com/AngelThomas/vulnshop to a directory of your choice
 - Download and install node.js (Download from https://nodejs.org/en/download/)
 - make sure location of node and npm (comes with installation of node.js) runtime are within path variable of operating system of your choice
 - open terminal window in the directory which holds the cloned repository (see first step)
