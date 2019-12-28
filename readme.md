@@ -8,6 +8,9 @@ Installation
 - run "npm install" from main directory, this installs dependencies (required node modules)
 - open browser and go to http://localhost:8089
 - when running in secure mode (isAppSecure = true), the url is https://localhost:8089
+- to login to the shop you can use username "ant" and password "welcome"
+- alternatively, you can register with a username and password of your choice
+- when the app is shut down and restarted again, the data (especially shopping cart and orders) will be deleted
 
 Introduction
 ============
